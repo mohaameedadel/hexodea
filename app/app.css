@@ -10,6 +10,7 @@
 @theme {
   --color-main: #0050ad;
   --color-muted: #4a5565;
+  --color-dark: #1e1e1e;
   --spacing-section: 90px;
 }
 

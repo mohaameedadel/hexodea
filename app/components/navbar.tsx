@@ -72,7 +72,7 @@ export function Navbar() {
               <Link
                 to={link.to}
                 className={cn(
-                  "w-full block text-shadow-dark py-2 px-4 rounded-4xl font-medium text-sm lg:text-lg hover:text-white hover:bg-main transition-colors duration-300"
+                  "w-full block text-dark py-2 px-4 rounded-4xl font-medium text-sm lg:text-lg hover:text-white hover:bg-main transition-colors duration-300"
                 )}
               >
                 {link.name}
