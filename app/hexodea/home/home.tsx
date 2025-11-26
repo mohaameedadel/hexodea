@@ -1,5 +1,5 @@
 import Collapse from "~/components/daisyUi/collapse";
-import Heading from "./components/heading";
+import Heading from "../../components/heading";
 import Particles from "./components/particles";
 import { Link } from "react-router";
 
@@ -62,6 +62,31 @@ export default function Home() {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
     },
   ];
+
+  const services = [
+    {
+      id: 1,
+      title: "Website Development",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+      image: "/assets/service/icons/web.svg",
+    },
+    {
+      id: 2,
+      title: "Mobile Application Development",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+      image: "/assets/service/icons/mobile.svg",
+    },
+    {
+      id: 3,
+      title: "Cloud Solution",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+      image: "/assets/service/icons/cloud.svg",
+    },
+  ];
+
   return (
     <div
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
@@ -119,122 +144,52 @@ export default function Home() {
       </div>
       <section className="bg-[linear-gradient(95.75deg,#6894DB_0%,#0050AD_100%)] py-16 px-4 lg:px-section">
         <Heading
-          title="Service"
-          subtitle="Our Services"
+          title="Our Services"
           description="We provide end-to-end digital solutions tailored to your business needs, from concept to deployment and beyond."
           dark={false}
         />
         <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-          <div className="relative group bg-[#719cd9] p-6 text-white rounded-2xl border border-white/20">
-            <div className="flex items-center justify-between mb-8">
-              <img src="/assets/home/icons/web.svg" alt="web" />
-              <div className="w-10 h-10 rounded-full border border-white border-dashed flex items-center justify-center">
-                <img src="/assets/home/icons/arrow.svg" alt="arrow" />
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="relative group bg-[#719cd9] p-6 text-white rounded-2xl border border-white/20"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <img src={service.image} alt="web" />
+                <div className="w-10 h-10 rounded-full border border-white border-dashed flex items-center justify-center">
+                  <img src="/assets/home/icons/arrow.svg" alt="arrow" />
+                </div>
+              </div>
+              <h3 className="font-normal text-2xl mb-6">{service.title}</h3>
+              <p className="font-normal text-sm pb-6">{service.description}</p>
+
+              <div className="absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
+                {webText.map((text, index) => (
+                  <p
+                    key={index}
+                    className="text-dark flex items-center mb-4 gap-2"
+                  >
+                    <img
+                      src="/assets/home/icons/right-arrow.svg"
+                      alt="right-arrow"
+                    />
+                    {text}
+                  </p>
+                ))}
+                <Link
+                  className="absolute border-2 border-white -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main  px-4 py-2 rounded-3xl text-lg font-medium block text-center"
+                  to="/"
+                >
+                  Get Started
+                </Link>
               </div>
             </div>
-            <h3 className="font-normal text-2xl mb-6">Website Delopment</h3>
-            <p className="font-normal text-sm pb-6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's
-            </p>
-
-            <div className="absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
-              {webText.map((text, index) => (
-                <p
-                  key={index}
-                  className="text-dark flex items-center mb-4 gap-2"
-                >
-                  <img
-                    src="/assets/home/icons/right-arrow.svg"
-                    alt="right-arrow"
-                  />
-                  {text}
-                </p>
-              ))}
-              <Link
-                className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main button-shadow ring-4 ring-main/10 text-white px-4 py-2 rounded-3xl text-lg font-medium block text-center"
-                to="/"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-          <div className="relative group bg-[#719cd9] p-6 text-white rounded-2xl border border-white/20">
-            <div className="flex items-center justify-between mb-8">
-              <img src="/assets/home/icons/mobile.svg" alt="mobile" />
-              <div className="w-10 h-10 rounded-full border border-white border-dashed flex items-center justify-center">
-                <img src="/assets/home/icons/arrow.svg" alt="arrow" />
-              </div>
-            </div>
-            <h3 className="font-normal text-2xl mb-6 w-2/3">
-              Mobile Application Development
-            </h3>
-            <p className="font-normal text-sm pb-6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's
-            </p>
-
-            <div className="absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
-              {webText.map((text, index) => (
-                <p
-                  key={index}
-                  className="text-dark flex items-center mb-4 gap-2"
-                >
-                  <img
-                    src="/assets/home/icons/right-arrow.svg"
-                    alt="right-arrow"
-                  />
-                  {text}
-                </p>
-              ))}
-              <Link
-                className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main button-shadow ring-4 ring-main/10 text-white px-4 py-2 rounded-3xl text-lg font-medium block text-center"
-                to="/"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-          <div className="relative group bg-[#719cd9] p-6 text-white rounded-2xl border border-white/20">
-            <div className="flex items-center justify-between mb-8">
-              <img src="/assets/home/icons/cloud.svg" alt="cloud" />
-              <div className="w-10 h-10 rounded-full border border-white border-dashed flex items-center justify-center">
-                <img src="/assets/home/icons/arrow.svg" alt="arrow" />
-              </div>
-            </div>
-            <h3 className="font-normal text-2xl mb-6">Cloud Solution</h3>
-            <p className="font-normal text-sm pb-6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's
-            </p>
-
-            <div className="absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
-              {webText.map((text, index) => (
-                <p
-                  key={index}
-                  className="text-dark flex items-center mb-4 gap-2"
-                >
-                  <img
-                    src="/assets/home/icons/right-arrow.svg"
-                    alt="right-arrow"
-                  />
-                  {text}
-                </p>
-              ))}
-              <Link
-                className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main button-shadow ring-4 ring-main/10 text-white px-4 py-2 rounded-3xl text-lg font-medium block text-center"
-                to="/"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
       <section className="py-16 px-4 lg:px-section">
         <Heading
-          title="Portfolio"
-          subtitle="Our Portfolio"
+          title="Our Portfolio"
           description="A showcase of our digital projects across industries"
           dark={true}
         />
@@ -320,8 +275,8 @@ export default function Home() {
       </section>
       <section className="py-16 px-4 lg:px-section">
         <Heading
-          title="Frequently Asked Questions"
-          subtitle="FAQS"
+          title="FAQS"
+          description="Find answers to common questions about our services and platform."
           dark={true}
         />
         <div className="mt-14">
