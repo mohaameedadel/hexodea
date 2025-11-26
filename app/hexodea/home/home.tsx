@@ -1,9 +1,10 @@
 import Collapse from "~/components/daisyUi/collapse";
 import Heading from "../../components/heading";
 import Particles from "./components/particles";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function Home() {
+  let navigate = useNavigate();
   const webText = [
     "Responsive design across all devices",
     "API integrations and third-party services",
@@ -14,16 +15,19 @@ export default function Home() {
 
   const potfolio = [
     {
+      id: 1,
       title: "Phonic Maps",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
     },
     {
+      id: 2,
       title: "Fixawy",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
     },
     {
+      id: 3,
       title: "Hexodea",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
@@ -178,7 +182,7 @@ export default function Home() {
                 ))}
                 <Link
                   className="absolute border-2 border-white -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main  px-4 py-2 rounded-3xl text-lg font-medium block text-center"
-                  to="/"
+                  to={`/service/${service.id}`}
                 >
                   Get Started
                 </Link>
@@ -198,7 +202,10 @@ export default function Home() {
             <div key={index} className="p-4 rounded-3xl border border-black/10">
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-dark font-normal text-2xl">{item.title}</h2>
-                <div className="w-10 h-10 bg-main rounded-full flex items-center justify-center">
+                <div
+                  onClick={() => navigate(`/portfolio/${item.id}`)}
+                  className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center"
+                >
                   <img src="/assets/home/icons/right.svg" alt="arrow" />
                 </div>
               </div>

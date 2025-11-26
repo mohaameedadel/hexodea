@@ -75,7 +75,7 @@ export default function Service() {
           <img
             className="absolute top-0 right-0 animate-pulse"
             src="/assets/service/hero-shape.svg"
-            alt=""
+            alt="circle"
           />
         </section>
       </div>
@@ -110,7 +110,7 @@ export default function Service() {
                 ))}
                 <Link
                   className="absolute border-2 border-white -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main  px-4 py-2 rounded-3xl text-lg font-medium block text-center"
-                  to="/"
+                  to={`/service/${service.id}`}
                 >
                   Get Started
                 </Link>
