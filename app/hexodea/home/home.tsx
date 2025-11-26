@@ -1,3 +1,4 @@
+import Collapse from "~/components/daisyUi/collapse";
 import Heading from "./components/heading";
 import Particles from "./components/particles";
 import { Link } from "react-router";
@@ -28,10 +29,43 @@ export default function Home() {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
     },
   ];
+
+  const faqs = [
+    {
+      question: "Lorem Ipsum is simply dummy text?",
+      answer:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+    },
+    {
+      question: "Lorem Ipsum is simply dummy text?",
+      answer:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+    },
+    {
+      question: "Lorem Ipsum is simply dummy text?",
+      answer:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+    },
+    {
+      question: "Lorem Ipsum is simply dummy text?",
+      answer:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+    },
+    {
+      question: "Lorem Ipsum is simply dummy text?",
+      answer:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+    },
+    {
+      question: "Lorem Ipsum is simply dummy text?",
+      answer:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+    },
+  ];
   return (
     <div
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
-      className="w-full bg-cover bg-center"
+      className="w-full bg-cover bg-center text-dark"
     >
       <div className="h-screen bg-cover bg-center">
         <div
@@ -221,6 +255,79 @@ export default function Home() {
                 src="/assets/home/card.png"
                 alt="card"
               />
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="py-16 px-4 lg:px-section">
+        <h2 className="font-semibold text-dark text-3xl mb-10">
+          We Transform Ideas <br /> Into
+          <span className="ms-1 text-main">
+            Digital <br /> Excellence
+          </span>
+        </h2>
+        <div className="grid lg:grid-cols-2 gap-20">
+          <div>
+            <p className="font-normal text-lg text-muted mb-6">
+              At DotNaat, we're more than just developers – we're digital
+              architects who understand that great software is born from the
+              perfect blend of innovation, strategy, and craftsmanship.
+            </p>
+            <p className="font-normal text-lg text-muted">
+              Our team of passionate creators brings years of experience in
+              building solutions that don't just work, but inspire and transform
+              businesses.
+            </p>
+
+            <div className="mt-12 space-y-6">
+              <div className="flex items-center gap-6">
+                <img src="/assets/home/icons/rocket.svg" alt="rocket" />
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Innovation</h3>
+                  <p className="text-muted font-normal text-sm">
+                    Cutting-edge solutions for tomorrow's challenges
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6">
+                <img src="/assets/home/icons/hand.svg" alt="Trust" />
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Trust</h3>
+                  <p className="text-muted font-normal text-sm">
+                    Building lasting partnerships through transparency
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6">
+                <img src="/assets/home/icons/delivery.svg" alt="Delivery" />
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Delivery</h3>
+                  <p className="text-muted font-normal text-sm">
+                    Fast, reliable, and high-quality results every time
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img
+              className="w-full"
+              src="/assets/home/section.png"
+              alt="section"
+            />
+          </div>
+        </div>
+      </section>
+      <section className="py-16 px-4 lg:px-section">
+        <Heading
+          title="Frequently Asked Questions"
+          subtitle="FAQS"
+          dark={true}
+        />
+        <div className="mt-14">
+          {faqs.map((faq, index) => (
+            <div key={index} className="mb-6">
+              <Collapse question={faq.question} answer={faq.answer} />
             </div>
           ))}
         </div>

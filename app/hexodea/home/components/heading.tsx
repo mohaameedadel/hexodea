@@ -26,7 +26,7 @@ export default function Heading({
       {subtitle && (
         <h2
           className={cn(
-            "text-white font-medium text-3xl mb-4",
+            "text-white font-semibold text-3xl mb-4 ",
             dark && "text-dark"
           )}
         >
