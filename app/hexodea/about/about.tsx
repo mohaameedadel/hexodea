@@ -123,11 +123,12 @@ export default function About() {
         <section className="relative overflow-hidden w-full flex justify-center items-center rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)] py-24">
           <div className="text-center px-4">
             <h1 className="text-5xl font-semibold mb-10 text-white lg:w-2/3 mx-auto">
-              WHERE QUALITY MEETS INNOVATION
+              ABOUT HEXODEA
             </h1>
             <p className="text-white text-base font-normal lg:w-2/3 mx-auto">
-              "We provide tailored solutions that help businesses grow, improve
-              efficiency, and stay ahead of the competition."
+              We're a creative agency driven by passion, powered by innovation,
+              and dedicated to transforming brands into unforgettable
+              experiences.
             </p>
           </div>
 
