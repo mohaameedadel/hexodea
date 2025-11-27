@@ -4,17 +4,19 @@ export default function Heading({
   title,
   description,
   dark,
+  fullWidth,
 }: {
   title?: string;
   description?: string;
   dark: boolean;
+  fullWidth?: boolean;
 }) {
   return (
     <div>
       {title && (
         <h2
           className={cn(
-            "text-white font-semibold text-3xl mb-4 ",
+            "text-white font-semibold text-5xl mb-4 ",
             dark && "text-dark"
           )}
         >
@@ -24,7 +26,8 @@ export default function Heading({
       {description && (
         <p
           className={cn(
-            "text-white lg:w-1/3 font-normal text-base",
+            fullWidth ? "w-full" : "lg:w-2/3",
+            "text-white font-normal text-base",
             dark && "text-muted"
           )}
         >
