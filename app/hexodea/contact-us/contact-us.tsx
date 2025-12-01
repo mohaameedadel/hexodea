@@ -1,4 +1,11 @@
+import { useForm } from "react-hook-form";
+import Button from "~/components/daisyUi/button";
+import TextareaInput from "~/components/form/text-area";
+import TextInput from "~/components/form/text-input";
+import Heading from "~/components/heading";
+
 export default function ContactUs() {
+  const { control, handleSubmit } = useForm();
   return (
     <div
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
@@ -25,12 +32,59 @@ export default function ContactUs() {
         </section>
       </div>
 
-      <div className="h-screen flex items-center justify-center">
-        <iframe
-          className="w-full h-full"
-          src="https://lottie.host/embed/6ecaebbc-dac6-448b-a0e9-626a7f049bf5/04OyLtTBqa.lottie"
-        ></iframe>
-      </div>
+      <section className="pb-16 px-4 lg:px-section">
+        <div className="grid lg:grid-cols-2 gap-10">
+          <div>
+            <Heading
+              title="Let's Talk"
+              description="At Besnik Consultancy, we take pride in our values – service, integrity, and excellence. "
+              dark
+            />
+
+            <form
+              className="space-y-6 mt-6"
+              onSubmit={handleSubmit((data) => console.log(data))}
+            >
+              <TextInput
+                placeholder="*Full Name"
+                control={control}
+                name="name"
+                required
+              />
+              <TextInput
+                placeholder="*Email"
+                control={control}
+                name="email"
+                type="email"
+                required
+              />
+              <TextInput
+                placeholder="*Mobile Number"
+                control={control}
+                name="mobile"
+                type="tel"
+                required
+              />
+              <TextareaInput
+                placeholder="Message"
+                control={control}
+                name="message"
+                required
+                rows={4}
+              />
+              <Button type="submit" className="mt-6">
+                Submit
+              </Button>
+            </form>
+          </div>
+          <div className="w-full h-[600px] lg:h-full">
+            <iframe
+              className="w-full h-full"
+              src="https://lottie.host/embed/6ecaebbc-dac6-448b-a0e9-626a7f049bf5/04OyLtTBqa.lottie"
+            ></iframe>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
