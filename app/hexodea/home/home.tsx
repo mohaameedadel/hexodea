@@ -152,7 +152,7 @@ export default function Home() {
           description="We provide end-to-end digital solutions tailored to your business needs, from concept to deployment and beyond."
           dark={false}
         />
-        <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-10">
           {services.map((service) => (
             <div
               key={service.id}

@@ -62,7 +62,7 @@ export function Navbar() {
         className={cn(
           "lg:w-5/7 w-full lg:flex gap-2 lg:items-center lg:justify-between lg:relative lg:top-auto lg:left-auto lg:bg-transparent lg:p-0 absolute top-full left-0 bg-white p-4 z-50 duration-1000",
           showNavItems && " shadow-lg lg:shadow-none",
-          !showNavItems && "-top-full opacity-0 lg:opacity-100",
+          !showNavItems && "-top-[500%] opacity-0 lg:opacity-100",
           isScrolled && "mt-0"
         )}
       >

@@ -80,7 +80,7 @@ export default function Service() {
         </section>
       </div>
       <section className="bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)] py-16 px-4 lg:px-section">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10">
           {services.map((service) => (
             <div
               key={service.id}
@@ -95,7 +95,7 @@ export default function Service() {
               <h3 className="font-normal text-2xl mb-6">{service.title}</h3>
               <p className="font-normal text-sm pb-6">{service.description}</p>
 
-              <div className="absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
+              <div className="z-10 absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
                 {webText.map((text, index) => (
                   <p
                     key={index}
