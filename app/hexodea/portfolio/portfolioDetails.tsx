@@ -598,13 +598,13 @@ export default function PortfolioDetails({
               onClick={() => setSrcManual(img)}
               src={img}
               alt="card"
-              className="h-full max-h-[445px] w-full max-w-[200px] object-cover cursor-pointer rounded-4xl"
+              className="h-full max-h-[485px] w-full object-cover cursor-pointer rounded-4xl"
             />
           ))}
 
           <div className="flex justify-center items-center">
             <IPhoneMockup
-              screenWidth={200}
+              screenWidth={220}
               frameColor="#000000"
               frameOnly
               hideStatusBar
@@ -626,7 +626,7 @@ export default function PortfolioDetails({
               onClick={() => setSrcManual(img)}
               src={img}
               alt="card"
-              className="h-full w-full object-cover cursor-pointer rounded-4xl"
+              className="h-full max-h-[485px] w-full object-cover cursor-pointer rounded-4xl"
             />
           ))}
         </div>
