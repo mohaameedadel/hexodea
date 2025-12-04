@@ -2,6 +2,7 @@ import Collapse from "~/components/daisyUi/collapse";
 import Heading from "../../components/heading";
 import Particles from "./components/particles";
 import { Link, useNavigate } from "react-router";
+import ScrollVelocity from "./components/scroll-velocity";
 
 export default function Home() {
   let navigate = useNavigate();
@@ -280,6 +281,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <ScrollVelocity
+        texts={["HEXODEA", "SOFTWARE SOLUTIONS"]}
+        velocity={50}
+        className="text-main"
+      />
       <section className="py-16 px-4 lg:px-section">
         <Heading
           title="FAQS"
