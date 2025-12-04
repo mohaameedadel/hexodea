@@ -4,6 +4,7 @@ import Particles from "./components/particles";
 import { Link, useNavigate } from "react-router";
 import ScrollVelocity from "./components/scroll-velocity";
 import BlurText from "./components/blur-text";
+import StaggeredLetter from "./components/staggered-text";
 
 export default function Home() {
   let navigate = useNavigate();
@@ -116,17 +117,21 @@ export default function Home() {
         </div>
         <section className="h-full flex justify-center items-center relative z-10">
           <div className="text-center px-4">
-            <h1 className="text-5xl font-semibold text-dark mb-10">
-              HEXODEA <span className="text-main">SOFTWARE</span> SOLUTIONS
-            </h1>
+            <div className="mb-10 flex justify-center flex-wrap gap-2">
+              <StaggeredLetter text="HEXODEA" />
+
+              <StaggeredLetter text="SOFTWARE" className="text-main" />
+
+              <StaggeredLetter text="SOLUTIONS" />
+            </div>
+
             <BlurText
               text="At Dotnaat, we craft powerful software solutions that help businesses grow, innovate, and succeed in the digital era.At Dotnaat, we craft powerful software solutions that help businesses grow, innovate, and succeed in the digital era."
-              delay={150}
+              delay={100}
               animateBy="words"
               direction="top"
               className="text-muted text-center justify-center text-base font-normal lg:w-2/3 mx-auto"
             />
-            {/* <p className="text-muted text-base font-normal lg:w-2/3 mx-auto"></p> */}
             <div className="flex flex-wrap justify-center items-center gap-10 mt-16">
               <Link
                 to="/portfolio"
