@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { LuAlignJustify, LuX } from "react-icons/lu";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { cn } from "~/utils/cn";
 
 export function Navbar() {
@@ -69,14 +69,17 @@ export function Navbar() {
         <ul className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
           {links.map((link) => (
             <li key={link.to}>
-              <Link
+              <NavLink
                 to={link.to}
-                className={cn(
-                  "w-full block text-dark py-2 px-4 rounded-4xl font-medium text-sm lg:text-lg hover:text-white hover:bg-main transition-colors duration-300"
-                )}
+                className={({ isActive }) =>
+                  cn(
+                    "w-full block text-dark py-2 px-4 rounded-4xl font-medium text-sm lg:text-lg hover:text-white hover:bg-main transition-colors duration-300",
+                    isActive && "bg-main text-white"
+                  )
+                }
               >
                 {link.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
