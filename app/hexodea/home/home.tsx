@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router";
 import ScrollVelocity from "./components/scroll-velocity";
 import BlurText from "./components/blur-text";
 import StaggeredLetter from "./components/staggered-text";
+import CurvedLoop from "./components/curved-text";
 
 export default function Home() {
   let navigate = useNavigate();
@@ -230,6 +231,11 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <ScrollVelocity
+        texts={["HEXODEA", "SOFTWARE SOLUTIONS"]}
+        velocity={50}
+        className="text-main"
+      />
       <section className="py-16 px-4 lg:px-section">
         <h2 className="font-semibold text-dark text-3xl mb-10">
           We Transform Ideas <br /> Into
@@ -289,12 +295,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <ScrollVelocity
-        texts={["HEXODEA", "SOFTWARE SOLUTIONS"]}
-        velocity={50}
-        className="text-main"
-      />
-      <section className="py-16 px-4 lg:px-section">
+      <section className="pt-16 px-4 lg:px-section">
         <Heading
           title="FAQS"
           description="Find answers to common questions about our services and platform."
@@ -308,6 +309,12 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <div className="lg:mb-20">
+        <CurvedLoop
+          className="text-main"
+          marqueeText="HEXODEA SOFTWARE SOLUTIONS ✦"
+        />
+      </div>
     </div>
   );
 }
