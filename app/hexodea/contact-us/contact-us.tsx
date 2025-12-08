@@ -3,29 +3,42 @@ import Button from "~/components/daisyUi/button";
 import TextareaInput from "~/components/form/text-area";
 import TextInput from "~/components/form/text-input";
 import Heading from "~/components/heading";
+import MirrorText from "./components/mirror-text";
+import BlurText from "../../components/blur-text";
+import { motion } from "framer-motion";
 
 export default function ContactUs() {
   const { control, handleSubmit } = useForm();
   return (
     <div
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
-      className="w-full bg-cover bg-center text-dark"
+      className="w-full bg-cover bg-center text-dark overflow-hidden"
     >
-      <div className="h-[90vh] flex justify-center items-center px-4 lg:p-section">
-        <section className="relative overflow-hidden w-full flex justify-center items-center rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)] py-24">
+      <div className="h-screen flex justify-center items-center px-4 lg:p-section">
+        <section className="relative overflow-hidden w-full flex justify-center items-center rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)] py-44">
           <div className="text-center px-4">
-            <h1 className="text-5xl font-semibold mb-10 text-white lg:w-2/3 mx-auto">
-              GET IN TOUCH
-            </h1>
-            <p className="text-white text-base font-normal lg:w-2/3 mx-auto">
-              We're a creative agency driven by passion, powered by innovation,
-              and dedicated to transforming brands into unforgettable
-              experiences.
-            </p>
+            <motion.div
+              initial={{ y: -100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <MirrorText
+                className="text-5xl lg:text-7xl font-semibold mb-10 text-white lg:w-2/3 mx-auto"
+                text="GET IN TOUCH"
+              />
+            </motion.div>
+            <BlurText
+              text="We're a creative agency driven by passion, powered by innovation, and dedicated to transforming brands into unforgettable experiences."
+              delay={100}
+              animateBy="words"
+              direction="bottom"
+              className="text-white text-base justify-center font-normal lg:w-2/3 mx-auto"
+            />
           </div>
 
           <img
-            className="absolute top-0 right-0 animate-pulse"
+            className="absolute top-0 right-0 w-40 md:w-auto transition-transform duration-300 hover:scale-150 hover:animate-ping animate-bounce"
             src="/assets/service/hero-shape.svg"
             alt="circle"
           />

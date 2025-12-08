@@ -3,12 +3,22 @@ import Heading from "../../components/heading";
 import Particles from "./components/particles";
 import { Link, useNavigate } from "react-router";
 import ScrollVelocity from "./components/scroll-velocity";
-import BlurText from "./components/blur-text";
+import BlurText from "../../components/blur-text";
 import StaggeredLetter from "./components/staggered-text";
-import CurvedLoop from "./components/curved-text";
+import CurvedLoop from "../../components/curved-text";
+import { motion } from "framer-motion";
 
 export default function Home() {
   let navigate = useNavigate();
+
+  const variants = {
+    left: { initial: { x: -200, opacity: 0 }, animate: { x: 0, opacity: 1 } },
+    right: { initial: { x: 200, opacity: 0 }, animate: { x: 0, opacity: 1 } },
+    bottom: { initial: { y: 200, opacity: 0 }, animate: { y: 0, opacity: 1 } },
+  };
+
+  const directions = ["left", "bottom", "right"] as const;
+
   const webText = [
     "Responsive design across all devices",
     "API integrations and third-party services",
@@ -98,7 +108,7 @@ export default function Home() {
   return (
     <div
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
-      className="w-full bg-cover bg-center text-dark"
+      className="w-full bg-cover bg-center text-dark overflow-hidden"
     >
       <div className="h-screen bg-cover bg-center">
         <div
@@ -133,25 +143,46 @@ export default function Home() {
               direction="top"
               className="text-muted text-center justify-center text-base font-normal lg:w-2/3 mx-auto"
             />
-            <div className="flex flex-wrap justify-center items-center gap-10 mt-16">
-              <Link
-                to="/portfolio"
-                className="w-fit cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
+            <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-10 mt-16">
+              <motion.div
+                initial={{ x: -200, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                Portfolio
-              </Link>
-              <Link
-                to="/contact-us"
-                className="w-fit cursor-pointer button-shadow ring-4 ring-main/10 block py-2 px-4 rounded-4xl font-medium text-lg text-white bg-main"
+                <Link
+                  to="/portfolio"
+                  className="w-fit link-shine cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
+                >
+                  Portfolio
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                Request for Quotation
-              </Link>
-              <Link
-                to="/contact-us"
-                className="w-fit cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
+                <Link
+                  to="/contact-us"
+                  className="w-fit link-shine cursor-pointer button-shadow ring-4 ring-main/10 block py-2 px-4 rounded-4xl font-medium text-lg text-white bg-main"
+                >
+                  Request for Quotation
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ x: 200, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                Contact Us
-              </Link>
+                <Link
+                  to="/contact-us"
+                  className="w-fit link-shine cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
+                >
+                  Contact Us
+                </Link>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -163,9 +194,13 @@ export default function Home() {
           dark={false}
         />
         <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-10">
-          {services.map((service) => (
-            <div
+          {services.map((service, i) => (
+            <motion.div
               key={service.id}
+              initial={variants[directions[i % 3]].initial}
+              whileInView={variants[directions[i % 3]].animate}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.2 }}
               className="relative group bg-[#719cd9] p-6 text-white rounded-2xl border border-white/20"
             >
               <div className="flex items-center justify-between mb-8">
@@ -191,13 +226,13 @@ export default function Home() {
                   </p>
                 ))}
                 <Link
-                  className="absolute border-2 border-white -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main  px-4 py-2 rounded-3xl text-lg font-medium block text-center"
+                  className="absolute border-2 border-white -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main px-4 py-2 rounded-3xl text-lg font-medium block text-center"
                   to={`/service/${service.id}`}
                 >
                   Get Started
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -208,13 +243,22 @@ export default function Home() {
           dark={true}
         />
         <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-          {potfolio.map((item, index) => (
-            <div key={index} className="p-4 rounded-3xl border border-black/10">
+          {potfolio.map((item, i) => (
+            <motion.div
+              key={item.id}
+              initial={variants[directions[i % 3]].initial}
+              whileInView={variants[directions[i % 3]].animate}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.2 }}
+              className="p-4 rounded-3xl border border-black/10 group bg-white"
+            >
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-dark font-normal text-2xl">{item.title}</h2>
+                <h2 className="text-dark font-medium text-2xl group-hover:text-main">
+                  {item.title}
+                </h2>
                 <div
                   onClick={() => navigate(`/portfolio/${item.id}`)}
-                  className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center"
+                  className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center group-hover:-rotate-30 transition duration-500"
                 >
                   <img src="/assets/home/icons/right.svg" alt="arrow" />
                 </div>
@@ -222,12 +266,15 @@ export default function Home() {
               <p className="font-light text-base text-muted pb-6">
                 {item.description}
               </p>
-              <img
-                className="rounded-2xl w-full"
-                src="/assets/home/card.png"
-                alt="card"
-              />
-            </div>
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  className="rounded-2xl w-full"
+                  src="/assets/home/card.png"
+                  alt="card"
+                />
+                <div className="shine absolute inset-0"></div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -237,14 +284,25 @@ export default function Home() {
         className="text-main"
       />
       <section className="py-16 px-4 lg:px-section">
-        <h2 className="font-semibold text-dark text-3xl mb-10">
+        <motion.h2
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="font-semibold text-dark text-3xl mb-10"
+        >
           We Transform Ideas <br /> Into
           <span className="ms-1 text-main">
             Digital <br /> Excellence
           </span>
-        </h2>
+        </motion.h2>
         <div className="grid lg:grid-cols-2 gap-20">
-          <div>
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <p className="font-normal text-lg text-muted mb-6">
               At DotNaat, we're more than just developers – we're digital
               architects who understand that great software is born from the
@@ -257,7 +315,13 @@ export default function Home() {
             </p>
 
             <div className="mt-12 space-y-6">
-              <div className="flex items-center gap-6">
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex items-center gap-6"
+              >
                 <img src="/assets/home/icons/rocket.svg" alt="rocket" />
                 <div>
                   <h3 className="text-lg font-semibold mb-4">Innovation</h3>
@@ -265,8 +329,14 @@ export default function Home() {
                     Cutting-edge solutions for tomorrow's challenges
                   </p>
                 </div>
-              </div>
-              <div className="flex items-center gap-6">
+              </motion.div>
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex items-center gap-6"
+              >
                 <img src="/assets/home/icons/hand.svg" alt="Trust" />
                 <div>
                   <h3 className="text-lg font-semibold mb-4">Trust</h3>
@@ -274,8 +344,14 @@ export default function Home() {
                     Building lasting partnerships through transparency
                   </p>
                 </div>
-              </div>
-              <div className="flex items-center gap-6">
+              </motion.div>
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex items-center gap-6"
+              >
                 <img src="/assets/home/icons/delivery.svg" alt="Delivery" />
                 <div>
                   <h3 className="text-lg font-semibold mb-4">Delivery</h3>
@@ -283,16 +359,22 @@ export default function Home() {
                     Fast, reliable, and high-quality results every time
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
-          <div>
+          </motion.div>
+
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <img
               className="w-full"
               src="/assets/home/section.png"
               alt="section"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
       <section className="pt-16 px-4 lg:px-section">
@@ -303,18 +385,19 @@ export default function Home() {
         />
         <div className="mt-14">
           {faqs.map((faq, index) => (
-            <div key={index} className="mb-6">
+            <motion.div
+              key={index}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className="mb-6"
+            >
               <Collapse question={faq.question} answer={faq.answer} />
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
-      <div className="lg:mb-20">
-        <CurvedLoop
-          className="text-main"
-          marqueeText="HEXODEA SOFTWARE SOLUTIONS ✦"
-        />
-      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { cn } from "~/utils/cn";
+import { motion } from "framer-motion";
 
 export default function Heading({
   title,
@@ -14,17 +15,25 @@ export default function Heading({
   return (
     <div>
       {title && (
-        <h2
+        <motion.h2
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className={cn(
             "text-white font-semibold text-5xl mb-4 ",
             dark && "text-dark"
           )}
         >
           {title}
-        </h2>
+        </motion.h2>
       )}
       {description && (
-        <p
+        <motion.p
+          initial={{ y: 200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className={cn(
             fullWidth ? "w-full" : "lg:w-2/3",
             "text-white font-normal text-base",
@@ -32,7 +41,7 @@ export default function Heading({
           )}
         >
           {description}
-        </p>
+        </motion.p>
       )}
     </div>
   );

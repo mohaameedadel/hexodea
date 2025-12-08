@@ -73,7 +73,7 @@ export function Navbar() {
                 to={link.to}
                 className={({ isActive }) =>
                   cn(
-                    "w-full block text-dark py-2 px-4 rounded-4xl font-medium text-sm lg:text-lg hover:text-white hover:bg-main transition-colors duration-300",
+                    "w-full link-shine block text-dark py-2 px-4 rounded-4xl font-medium text-sm lg:text-lg hover:text-white hover:bg-main transition-colors duration-300",
                     isActive && "bg-main text-white"
                   )
                 }
@@ -84,7 +84,7 @@ export function Navbar() {
           ))}
         </ul>
         <Link
-          className="bg-main button-shadow ring-4 ring-main/10 text-white px-4 py-2 h-full rounded-3xl text-lg font-medium block text-center mt-6 lg:mt-0"
+          className="bg-main link-shine button-shadow ring-4 ring-main/10 text-white px-4 py-2 h-full rounded-3xl text-lg font-medium block text-center mt-6 lg:mt-0"
           to="/"
         >
           Get Started
