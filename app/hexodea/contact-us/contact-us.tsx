@@ -54,7 +54,11 @@ export default function ContactUs() {
               dark
             />
 
-            <form
+            <motion.form
+              initial={{ x: -200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="space-y-6 mt-6"
               onSubmit={handleSubmit((data) => console.log(data))}
             >
@@ -88,11 +92,12 @@ export default function ContactUs() {
               <Button type="submit" className="mt-6">
                 Submit
               </Button>
-            </form>
+            </motion.form>
           </div>
           <div className="w-full h-[600px] lg:h-full">
             <iframe
               className="w-full h-full"
+              loading="lazy"
               src="https://lottie.host/embed/6ecaebbc-dac6-448b-a0e9-626a7f049bf5/04OyLtTBqa.lottie"
             ></iframe>
           </div>

@@ -158,7 +158,13 @@ export default function About() {
               description="At Besnik Consultancy, we take pride in our values – service, integrity, and excellence. "
               dark
             />
-            <div className="mt-14 grid lg:grid-cols-2 gap-16">
+            <motion.div
+              initial={{ x: -200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="mt-14 grid lg:grid-cols-2 gap-16"
+            >
               {overView.map((item) => (
                 <div key={item.id}>
                   <span className="font-normal text-6xl mb-4 block">
@@ -170,10 +176,16 @@ export default function About() {
                   </p>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
           <div></div>
-          <div className="lg:col-span-4 columns-2 gap-6">
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-4 columns-2 gap-6"
+          >
             <div>
               <img
                 className="w-full object-cover rounded-2xl mb-6"
@@ -203,11 +215,17 @@ export default function About() {
                 alt="hexodea"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
       <section className="py-16 px-4 lg:px-section">
-        <div className="grid lg:grid-cols-2 gap-6">
+        <motion.div
+          initial={{ y: -200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="grid lg:grid-cols-2 gap-6"
+        >
           {missionAndVision.map((item) => (
             <div
               key={item.id}
@@ -225,12 +243,18 @@ export default function About() {
               </p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </section>
       <section className="py-16 px-4 lg:px-section">
         <Heading title="WHY HEXODEA" dark />
 
-        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-6 mt-14">
+        <motion.div
+          initial={{ y: 200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-6 mt-14"
+        >
           {whyHexodea.map((item) => (
             <div
               key={item.id}
@@ -243,7 +267,7 @@ export default function About() {
               </p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </section>
       <section className="py-16 px-4 lg:px-section">
         <Heading
@@ -253,9 +277,16 @@ export default function About() {
         />
         <div className="mt-14">
           {faqs.map((faq, index) => (
-            <div key={index} className="mb-6">
+            <motion.div
+              key={index}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className="mb-6"
+            >
               <Collapse question={faq.question} answer={faq.answer} />
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -271,7 +302,7 @@ export default function About() {
             </p>
           </div>
           <Link
-            className="bg-white button-shadow ring-4 ring-white/10 text-main px-4 py-2 h-full rounded-3xl text-lg font-medium block text-center mt-6 lg:mt-0"
+            className="link-shine bg-white button-shadow ring-4 ring-white/10 text-main px-4 py-2 h-full rounded-3xl text-lg font-medium block text-center mt-6 lg:mt-0"
             to="/contact-us"
           >
             Contact Us
