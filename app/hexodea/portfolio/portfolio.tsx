@@ -6,14 +6,8 @@ import CurvedLoop from "../../components/curved-text";
 import JitterText from "./components/jitter-text";
 
 export default function Portfolio() {
-  const variants = {
-    left: { initial: { x: -200, opacity: 0 }, animate: { x: 0, opacity: 1 } },
-    right: { initial: { x: 200, opacity: 0 }, animate: { x: 0, opacity: 1 } },
-    bottom: { initial: { y: 200, opacity: 0 }, animate: { y: 0, opacity: 1 } },
-  };
-
-  const directions = ["left", "bottom", "right"] as const;
   let navigate = useNavigate();
+
   const potfolio = [
     {
       id: 1,
@@ -57,8 +51,8 @@ export default function Portfolio() {
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
       className="w-full bg-cover bg-center text-dark overflow-hidden"
     >
-      <div className="h-screen flex justify-center items-center px-4 lg:p-section">
-        <section className="relative overflow-hidden w-full flex justify-center items-center rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)] py-44">
+      <div className="mt-24 md:mt-0 pb-16 md:pb-0 md:h-screen flex justify-center items-center px-4 lg:p-section">
+        <section className="relative overflow-hidden w-full flex justify-center items-center rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)] py-24 md:py-44">
           <div className="text-center px-4">
             <motion.div
               initial={{ y: -100, opacity: 0 }}
@@ -89,14 +83,16 @@ export default function Portfolio() {
       </div>
 
       <section className="py-16 px-4 lg:px-section">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <motion.div
+          initial={{ y: -200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="grid lg:grid-cols-3 md:grid-cols-2 gap-6"
+        >
           {potfolio.map((item, i) => (
-            <motion.div
+            <div
               key={item.id}
-              initial={variants[directions[i % 3]].initial}
-              whileInView={variants[directions[i % 3]].animate}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.2 }}
               className="p-4 rounded-3xl border border-black/10 group bg-white"
             >
               <div className="flex items-center justify-between mb-8">
@@ -121,13 +117,10 @@ export default function Portfolio() {
                 />
                 <div className="shine absolute inset-0"></div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </section>
-      <div className="lg:pb-40">
-        <CurvedLoop className="text-main" marqueeText="PORTFOLIO ✦" />
-      </div>
     </div>
   );
 }

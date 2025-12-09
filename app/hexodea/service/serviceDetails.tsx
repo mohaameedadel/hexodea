@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import Heading from "~/components/heading";
 import { ZigzagSteps } from "~/components/zigzag-steps";
+import { motion } from "framer-motion";
 
 export default function ServiceDetails({
   params,
@@ -117,7 +118,13 @@ export default function ServiceDetails({
           </div>
         </div>
       </div>
-      <div className="py-16 px-4 lg:px-section">
+      <motion.div
+        initial={{ y: 200, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="py-16 px-4 lg:px-section"
+      >
         <div className="p-6 bg-white shadow-[0_0_6px_0_#0000001F] rounded-2xl">
           <img src={service?.image} alt={service?.title} />
           <h2 className="text-2xl font-medium my-6">{service?.title}</h2>
@@ -125,7 +132,7 @@ export default function ServiceDetails({
             {service?.description}
           </p>
         </div>
-      </div>
+      </motion.div>
       <section className="py-16 px-4 lg:px-section">
         <div>
           <Heading
@@ -144,14 +151,25 @@ export default function ServiceDetails({
           description="Explore similar projects we've recently delivered"
           dark={true}
         />
-        <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
-          {potfolio.map((item, index) => (
-            <div key={index} className="p-4 rounded-3xl border border-black/10">
+        <motion.div
+          initial={{ y: -200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6"
+        >
+          {potfolio.map((item, i) => (
+            <div
+              key={item.id}
+              className="p-4 rounded-3xl border border-black/10 group bg-white"
+            >
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-dark font-normal text-2xl">{item.title}</h2>
+                <h2 className="text-dark font-medium text-2xl group-hover:text-main">
+                  {item.title}
+                </h2>
                 <div
                   onClick={() => navigate(`/portfolio/${item.id}`)}
-                  className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center"
+                  className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center group-hover:-rotate-30 transition duration-500"
                 >
                   <img src="/assets/home/icons/right.svg" alt="arrow" />
                 </div>
@@ -159,14 +177,17 @@ export default function ServiceDetails({
               <p className="font-light text-base text-muted pb-6">
                 {item.description}
               </p>
-              <img
-                className="rounded-2xl w-full"
-                src="/assets/home/card.png"
-                alt="card"
-              />
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  className="rounded-2xl w-full"
+                  src="/assets/home/card.png"
+                  alt="card"
+                />
+                <div className="shine absolute inset-0"></div>
+              </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </section>
       <div className="px-4 lg:px-section">
         <div className="flex justify-between items-center p-10 rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)]">
@@ -177,7 +198,7 @@ export default function ServiceDetails({
             </p>
           </div>
           <Link
-            className="bg-white button-shadow ring-4 ring-white/10 text-main px-4 py-2 h-full rounded-3xl text-lg font-medium block text-center mt-6 lg:mt-0"
+            className="link-shine bg-white button-shadow ring-4 ring-white/10 text-main px-4 py-2 h-full rounded-3xl text-lg font-medium block text-center mt-6 lg:mt-0"
             to="/contact-us"
           >
             Order The Service Now

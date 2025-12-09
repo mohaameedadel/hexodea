@@ -5,19 +5,10 @@ import { Link, useNavigate } from "react-router";
 import ScrollVelocity from "./components/scroll-velocity";
 import BlurText from "../../components/blur-text";
 import StaggeredLetter from "./components/staggered-text";
-import CurvedLoop from "../../components/curved-text";
 import { motion } from "framer-motion";
 
 export default function Home() {
   let navigate = useNavigate();
-
-  const variants = {
-    left: { initial: { x: -200, opacity: 0 }, animate: { x: 0, opacity: 1 } },
-    right: { initial: { x: 200, opacity: 0 }, animate: { x: 0, opacity: 1 } },
-    bottom: { initial: { y: 200, opacity: 0 }, animate: { y: 0, opacity: 1 } },
-  };
-
-  const directions = ["left", "bottom", "right"] as const;
 
   const webText = [
     "Responsive design across all devices",
@@ -110,7 +101,7 @@ export default function Home() {
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
       className="w-full bg-cover bg-center text-dark overflow-hidden"
     >
-      <div className="h-screen bg-cover bg-center">
+      <div className="mt-24 md:mt-0 pb-16 md:pb-0 md:h-screen bg-cover bg-center">
         <div
           className="overflow-hidden"
           style={{ width: "100%", height: "100%", position: "absolute" }}
@@ -143,7 +134,7 @@ export default function Home() {
               direction="top"
               className="text-muted text-center justify-center text-base font-normal lg:w-2/3 mx-auto"
             />
-            <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-10 mt-16">
+            <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-10 mt-8 md:mt-16">
               <motion.div
                 initial={{ x: -200, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -193,26 +184,29 @@ export default function Home() {
           description="We provide end-to-end digital solutions tailored to your business needs, from concept to deployment and beyond."
           dark={false}
         />
-        <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-10">
+        <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-16 md:gap-10">
           {services.map((service, i) => (
             <motion.div
               key={service.id}
-              initial={variants[directions[i % 3]].initial}
-              whileInView={variants[directions[i % 3]].animate}
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.2 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative group bg-[#719cd9] p-6 text-white rounded-2xl border border-white/20"
             >
               <div className="flex items-center justify-between mb-8">
                 <img src={service.image} alt="web" />
-                <div className="w-10 h-10 rounded-full border border-white border-dashed flex items-center justify-center">
+                <Link
+                  to={`/service/${service.id}`}
+                  className="w-10 h-10 rounded-full border border-white border-dashed flex items-center justify-center"
+                >
                   <img src="/assets/home/icons/arrow.svg" alt="arrow" />
-                </div>
+                </Link>
               </div>
               <h3 className="font-normal text-2xl mb-6">{service.title}</h3>
               <p className="font-normal text-sm pb-6">{service.description}</p>
 
-              <div className="absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
+              <div className="z-10 absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
                 {webText.map((text, index) => (
                   <p
                     key={index}
@@ -242,14 +236,16 @@ export default function Home() {
           description="A showcase of our digital projects across industries"
           dark={true}
         />
-        <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <motion.div
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6"
+        >
           {potfolio.map((item, i) => (
-            <motion.div
+            <div
               key={item.id}
-              initial={variants[directions[i % 3]].initial}
-              whileInView={variants[directions[i % 3]].animate}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.2 }}
               className="p-4 rounded-3xl border border-black/10 group bg-white"
             >
               <div className="flex items-center justify-between mb-8">
@@ -274,9 +270,9 @@ export default function Home() {
                 />
                 <div className="shine absolute inset-0"></div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </section>
       <ScrollVelocity
         texts={["HEXODEA", "SOFTWARE SOLUTIONS"]}

@@ -122,8 +122,8 @@ export default function About() {
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
       className="w-full bg-cover bg-center text-dark overflow-hidden"
     >
-      <div className="h-screen flex justify-center items-center px-4 lg:p-section">
-        <section className="relative overflow-hidden w-full flex justify-center items-center rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)] py-44">
+      <div className="mt-24 md:mt-0 pb-16 md:pb-0 md:h-screen flex justify-center items-center px-4 lg:p-section">
+        <section className="relative overflow-hidden w-full flex justify-center items-center rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)] py-24 md:py-44">
           <div className="text-center px-4">
             <motion.div
               initial={{ y: -100, opacity: 0 }}
