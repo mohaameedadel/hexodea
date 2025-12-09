@@ -134,47 +134,34 @@ export default function Home() {
               direction="top"
               className="text-muted text-center justify-center text-base font-normal lg:w-2/3 mx-auto"
             />
-            <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-10 mt-8 md:mt-16">
-              <motion.div
-                initial={{ x: -200, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+            <motion.div
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-10 mt-8 md:mt-16"
+            >
+              <Link
+                to="/portfolio"
+                className="w-fit link-shine cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
               >
-                <Link
-                  to="/portfolio"
-                  className="w-fit link-shine cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
-                >
-                  Portfolio
-                </Link>
-              </motion.div>
-              <motion.div
-                initial={{ y: 200, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                Portfolio
+              </Link>
+
+              <Link
+                to="/contact-us"
+                className="w-fit link-shine cursor-pointer button-shadow ring-4 ring-main/10 block py-2 px-4 rounded-4xl font-medium text-lg text-white bg-main"
               >
-                <Link
-                  to="/contact-us"
-                  className="w-fit link-shine cursor-pointer button-shadow ring-4 ring-main/10 block py-2 px-4 rounded-4xl font-medium text-lg text-white bg-main"
-                >
-                  Request for Quotation
-                </Link>
-              </motion.div>
-              <motion.div
-                initial={{ x: 200, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                Request for Quotation
+              </Link>
+
+              <Link
+                to="/contact-us"
+                className="w-fit link-shine cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
               >
-                <Link
-                  to="/contact-us"
-                  className="w-fit link-shine cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
-                >
-                  Contact Us
-                </Link>
-              </motion.div>
-            </div>
+                Contact Us
+              </Link>
+            </motion.div>
           </div>
         </section>
       </div>
