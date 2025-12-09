@@ -89,7 +89,7 @@ export default function ContactUs() {
                 required
                 rows={4}
               />
-              <Button type="submit" className="mt-6">
+              <Button type="submit" className="mt-6 link-shine">
                 Submit
               </Button>
             </motion.form>
