@@ -101,7 +101,7 @@ export default function Home() {
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
       className="w-full bg-cover bg-center text-dark overflow-hidden"
     >
-      <div className="mt-24 md:mt-0 pb-16 md:pb-0 md:h-screen bg-cover bg-center">
+      <div className="mt-28 md:mt-0 pb-16 md:pb-0 md:h-screen bg-cover bg-center">
         <div
           className="overflow-hidden"
           style={{ width: "100%", height: "100%", position: "absolute" }}

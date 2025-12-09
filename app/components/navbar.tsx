@@ -71,6 +71,7 @@ export function Navbar() {
             <li key={link.to}>
               <NavLink
                 to={link.to}
+                onClick={() => setshowNavItems(false)}
                 className={({ isActive }) =>
                   cn(
                     "w-full link-shine block text-dark py-2 px-4 rounded-4xl font-medium text-sm lg:text-lg hover:text-white hover:bg-main transition-colors duration-300",
@@ -84,8 +85,9 @@ export function Navbar() {
           ))}
         </ul>
         <Link
-          className="bg-main link-shine button-shadow ring-4 ring-main/10 text-white px-4 py-2 h-full rounded-3xl text-lg font-medium block text-center mt-6 lg:mt-0"
-          to="/"
+          onClick={() => setshowNavItems(false)}
+          className="w-full lg:w-auto bg-main link-shine button-shadow ring-4 ring-main/10 text-white px-4 py-2 h-full rounded-3xl text-lg font-medium block text-center mt-6 lg:mt-0"
+          to="/contact-us"
         >
           Get Started
         </Link>
