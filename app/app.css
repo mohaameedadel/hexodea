@@ -72,6 +72,11 @@
   left: 125%;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000 !important;
+}
+
 @keyframes shine-move {
   0% {
     transform: translate(-150%, 150%);

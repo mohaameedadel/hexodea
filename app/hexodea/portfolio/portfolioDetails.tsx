@@ -1,63 +1,24 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { IPhoneMockup } from "react-device-mockup";
 import { MdStar, MdStarBorder } from "react-icons/md";
 import { Link } from "react-router";
 import Heading from "~/components/heading";
 import { SimpleSteps } from "~/components/steps";
+import { cn } from "~/utils/cn";
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function PortfolioDetails({
   params,
 }: {
   params: { portfolioId: string };
 }) {
-  const defaultImage = "/assets/portfolioDetails/screen.png";
-
-  const [currentSrc, setCurrentSrc] = useState(defaultImage);
-  const [fade, setFade] = useState(false);
-
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  const startAutoChange = () => {
-    if (!project?.images || project.images.length === 0) return;
-
-    if (intervalRef.current) clearInterval(intervalRef.current);
-
-    intervalRef.current = setInterval(() => {
-      setFade(true);
-
-      setTimeout(() => {
-        setCurrentSrc((prev) => {
-          const currentIndex = project.images.indexOf(prev);
-
-          if (currentIndex === -1) return project.images[0];
-
-          return project.images[(currentIndex + 1) % project.images.length];
-        });
-
-        setFade(false);
-      }, 300);
-    }, 5000);
-  };
-
-  useEffect(() => {
-    startAutoChange();
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, []);
-
-  const setSrcManual = (img: string) => {
-    setFade(true);
-    setTimeout(() => {
-      setCurrentSrc(img);
-      setFade(false);
-    }, 300);
-
-    startAutoChange();
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef<any>(null);
 
   const potfolio = [
     {
@@ -70,6 +31,10 @@ export default function PortfolioDetails({
         "/assets/portfolioDetails/screen2.png",
         "/assets/portfolioDetails/screen3.png",
         "/assets/portfolioDetails/screen4.png",
+        "/assets/about/image1.png",
+        "/assets/about/image2.png",
+        "/assets/about/image3.png",
+        "/assets/about/image4.png",
       ],
       summary: [
         {
@@ -142,6 +107,10 @@ export default function PortfolioDetails({
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
       images: [
+        "/assets/portfolioDetails/screen1.png",
+        "/assets/portfolioDetails/screen2.png",
+        "/assets/portfolioDetails/screen3.png",
+        "/assets/portfolioDetails/screen4.png",
         "/assets/about/image1.png",
         "/assets/about/image2.png",
         "/assets/about/image3.png",
@@ -218,6 +187,10 @@ export default function PortfolioDetails({
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
       images: [
+        "/assets/portfolioDetails/screen1.png",
+        "/assets/portfolioDetails/screen2.png",
+        "/assets/portfolioDetails/screen3.png",
+        "/assets/portfolioDetails/screen4.png",
         "/assets/about/image1.png",
         "/assets/about/image2.png",
         "/assets/about/image3.png",
@@ -294,6 +267,10 @@ export default function PortfolioDetails({
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
       images: [
+        "/assets/portfolioDetails/screen1.png",
+        "/assets/portfolioDetails/screen2.png",
+        "/assets/portfolioDetails/screen3.png",
+        "/assets/portfolioDetails/screen4.png",
         "/assets/about/image1.png",
         "/assets/about/image2.png",
         "/assets/about/image3.png",
@@ -370,6 +347,10 @@ export default function PortfolioDetails({
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
       images: [
+        "/assets/portfolioDetails/screen1.png",
+        "/assets/portfolioDetails/screen2.png",
+        "/assets/portfolioDetails/screen3.png",
+        "/assets/portfolioDetails/screen4.png",
         "/assets/about/image1.png",
         "/assets/about/image2.png",
         "/assets/about/image3.png",
@@ -446,6 +427,10 @@ export default function PortfolioDetails({
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
       images: [
+        "/assets/portfolioDetails/screen1.png",
+        "/assets/portfolioDetails/screen2.png",
+        "/assets/portfolioDetails/screen3.png",
+        "/assets/portfolioDetails/screen4.png",
         "/assets/about/image1.png",
         "/assets/about/image2.png",
         "/assets/about/image3.png",
@@ -548,10 +533,16 @@ export default function PortfolioDetails({
   return (
     <div
       style={{ backgroundImage: `url('/assets/gradient.svg')` }}
-      className="w-full bg-cover bg-center text-dark"
+      className="w-full bg-cover bg-center text-dark overflow-hidden"
     >
       <div className="mt-16 pt-16 px-4 lg:px-section">
-        <div className="flex items-center gap-2">
+        <motion.div
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex items-center gap-2"
+        >
           <Link to="/portfolio">
             <h1 className="text-[#104475]">Portfolio</h1>
           </Link>
@@ -559,26 +550,46 @@ export default function PortfolioDetails({
           <div>
             <h1 className="text-muted">{project?.title}</h1>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="pt-10 pb-16 px-4 lg:px-section">
         <div className="mb-10 w-fit bg-[#1044751A] text-main py-2 px-4 rounded-4xl">
           Social Media
         </div>
-        <h2 className="text-4xl font-semibold">{project?.title}</h2>
+        <motion.h2
+          initial={{ y: -200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-4xl font-semibold"
+        >
+          {project?.title}
+        </motion.h2>
       </div>
 
       <section className="pb-16 px-4 lg:px-section">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {project?.summary?.map((item) => (
-            <div className="p-4" key={item.id}>
+            <motion.div
+              initial={{ y: -200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className={cn(
+                item.id === 1 && "hover:border-[#FF6467]",
+                item.id === 2 && "hover:border-[#0600F4]",
+                item.id === 3 && "hover:border-[#68C8AB]",
+                "p-4 bg-white rounded-xl border-0 hover:border-b-4 transform transition-all duration-100"
+              )}
+              key={item.id}
+            >
               <div className="flex items-center justify-between mb-8">
                 <h3 className="text-2xl font-normal">{item.title}</h3>
                 <img src={item.icon} alt={item.title} />
               </div>
               <p className="font-normal text-muted">{item.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -590,50 +601,74 @@ export default function PortfolioDetails({
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-          className="rounded-xl p-5 grid md:grid-cols-3 xl:grid-cols-5 gap-8 items-center"
+          className="rounded-xl p-5"
         >
-          {project?.images.slice(0, 2).map((img, i) => (
-            <img
-              key={i}
-              onClick={() => setSrcManual(img)}
-              src={img}
-              alt="card"
-              className="h-full max-h-[485px] w-full object-cover cursor-pointer rounded-4xl"
-            />
-          ))}
-
-          <div className="flex justify-center items-center">
-            <IPhoneMockup
-              screenWidth={220}
-              frameColor="#000000"
-              frameOnly
-              hideStatusBar
-              hideNavBar
-            >
-              <img
-                src={currentSrc}
-                alt="mockup"
-                className={`transition-opacity duration-300 ${
-                  fade ? "opacity-0" : "opacity-100"
-                }`}
-              />
-            </IPhoneMockup>
-          </div>
-
-          {project?.images.slice(2, 4).map((img, i) => (
-            <img
-              key={i + 2}
-              onClick={() => setSrcManual(img)}
-              src={img}
-              alt="card"
-              className="h-full max-h-[485px] w-full object-cover cursor-pointer rounded-4xl"
-            />
-          ))}
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={Math.min(5, project?.images.length || 1)}
+            centeredSlides={true}
+            loop={true}
+            navigation
+            speed={600}
+            autoplay={{
+              delay: 1000,
+              disableOnInteraction: false,
+            }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            breakpoints={{
+              320: { slidesPerView: Math.min(1, project?.images.length || 1) },
+              640: { slidesPerView: Math.min(2, project?.images.length || 1) },
+              1024: { slidesPerView: Math.min(3, project?.images.length || 1) },
+              1280: { slidesPerView: Math.min(5, project?.images.length || 1) },
+            }}
+            className="w-full"
+          >
+            {project?.images.map((img, i) => (
+              <SwiperSlide key={i} className="flex justify-center">
+                <motion.div
+                  initial={{ scale: 1, opacity: 0.5 }}
+                  animate={{
+                    opacity: i === activeIndex ? 1 : 0.5,
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="cursor-pointer w-fit mx-auto"
+                  onClick={(e) => {
+                    const slideIndex = Number(
+                      (e.currentTarget.closest(".swiper-slide") as any).dataset
+                        .swiperSlideIndex
+                    );
+                    swiperRef.current?.slideToLoop(slideIndex);
+                  }}
+                >
+                  <IPhoneMockup
+                    screenWidth={220}
+                    frameColor="#000000"
+                    frameOnly
+                    hideStatusBar
+                    hideNavBar
+                  >
+                    <img
+                      src={img}
+                      alt={`project image ${i}`}
+                      className="w-full object-cover rounded-4xl mx-auto"
+                      loading="lazy"
+                    />
+                  </IPhoneMockup>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-8 gap-6">
           {project?.cards?.map((img, i) => (
-            <img
+            <motion.img
+              initial={{ y: -200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               key={i}
               className="h-full w-full object-cover"
               src={img}
@@ -646,16 +681,29 @@ export default function PortfolioDetails({
       <section className="py-16 px-4 lg:px-section">
         <Heading title="Project Process" dark />
 
-        <div className="mt-14">
+        <motion.div
+          initial={{ y: -200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="mt-14"
+        >
           <SimpleSteps steps={steps} />
-        </div>
+        </motion.div>
       </section>
       <section className="py-16 px-4 lg:px-section">
         <Heading title="Project Feedback" dark />
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {project?.feedbacks?.map((item) => (
-            <div className="p-8 bg-main rounded-3xl text-white" key={item.id}>
+            <motion.div
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="p-8 bg-main rounded-3xl text-white"
+              key={item.id}
+            >
               <div className="flex gap-1 mb-4">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <span key={star}>
@@ -679,7 +727,7 @@ export default function PortfolioDetails({
                   <p>{item.user.position}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

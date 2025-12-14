@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router";
-import HeroSectionTextHover from "~/components/hero-section-text-hover";
 import { motion } from "framer-motion";
 import BlurText from "../../components/blur-text";
-import CurvedLoop from "../../components/curved-text";
 import JitterText from "./components/jitter-text";
 
 export default function Portfolio() {
