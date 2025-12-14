@@ -223,15 +223,13 @@ export default function Home() {
           description="A showcase of our digital projects across industries"
           dark={true}
         />
-        <motion.div
-          initial={{ x: -200, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6"
-        >
+        <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
           {potfolio.map((item, i) => (
-            <div
+            <motion.div
+              initial={{ x: -200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               key={item.id}
               className="p-4 rounded-3xl border border-black/10 group bg-white"
             >
@@ -257,9 +255,9 @@ export default function Home() {
                 />
                 <div className="shine absolute inset-0"></div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
       <ScrollVelocity
         texts={["HEXODEA", "SOFTWARE SOLUTIONS"]}

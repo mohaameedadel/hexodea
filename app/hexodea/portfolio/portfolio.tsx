@@ -83,15 +83,13 @@ export default function Portfolio() {
       </div>
 
       <section className="py-16 px-4 lg:px-section">
-        <motion.div
-          initial={{ y: -200, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="grid lg:grid-cols-3 md:grid-cols-2 gap-6"
-        >
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
           {potfolio.map((item, i) => (
-            <div
+            <motion.div
+              initial={{ y: -200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               key={item.id}
               className="p-4 rounded-3xl border border-black/10 group bg-white"
             >
@@ -117,9 +115,9 @@ export default function Portfolio() {
                 />
                 <div className="shine absolute inset-0"></div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
     </div>
   );
