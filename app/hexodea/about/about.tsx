@@ -292,7 +292,7 @@ export default function About() {
       </section>
 
       <div className="px-4 lg:px-section">
-        <div className="flex justify-between items-center p-10 rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)]">
+        <div className="flex justify-between items-center flex-wrap p-10 rounded-3xl bg-[linear-gradient(95.75deg,#0050AD_0%,#6894DB_100%)]">
           <div className="text-white">
             <h2 className="font-medium text-3xl mb-6">
               Ready to Start Your Project?
