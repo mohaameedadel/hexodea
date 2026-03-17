@@ -120,15 +120,15 @@ export default function Home() {
         <section className="h-full flex justify-center items-center relative z-10">
           <div className="text-center px-4">
             <div className="mb-10 flex justify-center flex-wrap gap-2">
-              <StaggeredLetter text="HEXODEA" />
+              <StaggeredLetter text="Architecting" />
 
-              <StaggeredLetter text="SOFTWARE" className="text-main" />
+              <StaggeredLetter text="Digital" className="text-main" />
 
-              <StaggeredLetter text="SOLUTIONS" />
+              <StaggeredLetter text="Excellence" />
             </div>
 
             <BlurText
-              text="At Dotnaat, we craft powerful software solutions that help businesses grow, innovate, and succeed in the digital era.At Dotnaat, we craft powerful software solutions that help businesses grow, innovate, and succeed in the digital era."
+              text="Welcome to Hexodea. We are a team of digital architects turning complex challenges into scalable, high-performance tech ecosystems. From custom mobile apps and AI-driven automation to robust cloud systems, if you can imagine it, we can engineer it."
               delay={100}
               animateBy="words"
               direction="top"
@@ -145,21 +145,14 @@ export default function Home() {
                 to="/portfolio"
                 className="w-fit link-shine cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
               >
-                Portfolio
+                See Our Work
               </Link>
 
               <Link
                 to="/contact-us"
                 className="w-fit link-shine cursor-pointer button-shadow ring-4 ring-main/10 block py-2 px-4 rounded-4xl font-medium text-lg text-white bg-main"
               >
-                Request for Quotation
-              </Link>
-
-              <Link
-                to="/contact-us"
-                className="w-fit link-shine cursor-pointer block py-2 px-4 rounded-4xl font-medium text-lg text-main bg-main/10"
-              >
-                Contact Us
+                Let’s Talk About Your Project
               </Link>
             </motion.div>
           </div>
@@ -272,9 +265,9 @@ export default function Home() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="font-semibold text-dark text-3xl mb-10"
         >
-          We Transform Ideas <br /> Into
-          <span className="ms-1 text-main">
-            Digital <br /> Excellence
+          Your technology partner, <br /> not just
+          <span className="ms-2 text-main">
+            another <br /> vendor.
           </span>
         </motion.h2>
         <div className="grid lg:grid-cols-2 gap-20">
@@ -285,14 +278,10 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <p className="font-normal text-lg text-muted mb-6">
-              At DotNaat, we're more than just developers – we're digital
-              architects who understand that great software is born from the
-              perfect blend of innovation, strategy, and craftsmanship.
-            </p>
-            <p className="font-normal text-lg text-muted">
-              Our team of passionate creators brings years of experience in
-              building solutions that don't just work, but inspire and transform
-              businesses.
+              Building great software isn’t just about writing code; it’s about
+              understanding your business goals. We partner with you from day
+              one to design, develop, and deploy digital products that are
+              reliable, secure, and built to scale as you grow.
             </p>
 
             <div className="mt-12 space-y-6">
@@ -305,9 +294,9 @@ export default function Home() {
               >
                 <img src="/assets/home/icons/rocket.svg" alt="rocket" />
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">Innovation</h3>
+                  <h3 className="text-lg font-semibold mb-4">Scalability</h3>
                   <p className="text-muted font-normal text-sm">
-                    Cutting-edge solutions for tomorrow's challenges
+                    Systems built to grow with your user base.
                   </p>
                 </div>
               </motion.div>
@@ -320,9 +309,9 @@ export default function Home() {
               >
                 <img src="/assets/home/icons/hand.svg" alt="Trust" />
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">Trust</h3>
+                  <h3 className="text-lg font-semibold mb-4">Precision</h3>
                   <p className="text-muted font-normal text-sm">
-                    Building lasting partnerships through transparency
+                    Clean code, documented architecture, and rigorous testing.
                   </p>
                 </div>
               </motion.div>
@@ -335,9 +324,9 @@ export default function Home() {
               >
                 <img src="/assets/home/icons/delivery.svg" alt="Delivery" />
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">Delivery</h3>
+                  <h3 className="text-lg font-semibold mb-4">Innovation</h3>
                   <p className="text-muted font-normal text-sm">
-                    Fast, reliable, and high-quality results every time
+                    Integrating the latest in AI and Cloud Native technologies.
                   </p>
                 </div>
               </motion.div>
