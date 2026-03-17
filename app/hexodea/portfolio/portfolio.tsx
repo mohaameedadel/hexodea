@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import BlurText from "../../components/blur-text";
-import JitterText from "./components/jitter-text";
+import StaggeredLetter from "../home/components/staggered-text";
 
 export default function Portfolio() {
   let navigate = useNavigate();
@@ -9,39 +9,27 @@ export default function Portfolio() {
   const potfolio = [
     {
       id: 1,
-      title: "Phonic Maps",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+      title: "Phonic Maps (SaaS Platform)",
+      challenge:
+        "The Challenge: Managing hundreds of Google Business locations manually is inefficient and prone to error.",
+      solution:
+        "The Hexodea Solution: We engineered an enterprise-grade, AI-powered dashboard that automates review responses and synchronizes business data effortlessly across the globe from a single, centralized hub.",
     },
     {
       id: 2,
-      title: "Fixawy",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+      title: "Fixawy (On-Demand Marketplace)",
+      challenge:
+        "The Challenge: Creating a reliable, comprehensive home maintenance ecosystem.",
+      solution:
+        "The Hexodea Solution: We built a massive three-way ecosystem featuring a customer app, a dedicated provider app, and a powerful admin panel. It features real-time tracking, seamless workflows, and automated financial settlements.",
     },
     {
       id: 3,
-      title: "Hexodea",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
-    },
-    {
-      id: 4,
-      title: "Hexodea",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
-    },
-    {
-      id: 5,
-      title: "Hexodea",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
-    },
-    {
-      id: 6,
-      title: "Hexodea",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+      title: "Yelo Sales (Bidding Marketplace)",
+      challenge:
+        "The Challenge: Creating a predictable, transparent transaction environment for buyers and sellers.",
+      solution:
+        "The Hexodea Solution: We developed a streamlined marketplace application featuring a fixed-price bidding system. This robust architecture ensures fair, standardized transactions and a frictionless user experience from initial offer to final sale.",
     },
   ];
   return (
@@ -58,13 +46,25 @@ export default function Portfolio() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <JitterText
-                text="WE ARE BRING YOUR BRAND VISION TO LIFE"
-                className="text-5xl font-semibold mb-10 text-white lg:w-2/3 mx-auto"
-              />
+              <div className="mb-10 flex justify-center flex-wrap gap-2 lg:w-2/3 mx-auto">
+                <StaggeredLetter
+                  text="Don't just take"
+                  className="text-white"
+                />
+
+                <StaggeredLetter
+                  text="our word for it."
+                  className="text-white"
+                />
+
+                <StaggeredLetter
+                  text="Look at what we’ve built."
+                  className="text-white"
+                />
+              </div>
             </motion.div>
             <BlurText
-              text='"We provide tailored solutions that help businesses grow, improve efficiency, and stay ahead of the competition."'
+              text='"A glimpse into some of the digital ecosystems and platforms we’ve brought to life."'
               delay={100}
               animateBy="words"
               direction="bottom"
@@ -81,7 +81,7 @@ export default function Portfolio() {
       </div>
 
       <section className="py-16 px-4 lg:px-section">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
           {potfolio.map((item, i) => (
             <motion.div
               initial={{ y: -200, opacity: 0 }}
@@ -89,22 +89,27 @@ export default function Portfolio() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1, ease: "easeOut" }}
               key={item.id}
-              className="p-4 rounded-3xl border border-black/10 group bg-white"
+              className="p-4 rounded-3xl border border-black/10 group bg-white flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-dark font-medium text-2xl group-hover:text-main">
-                  {item.title}
-                </h2>
-                <div
-                  onClick={() => navigate(`/portfolio/${item.id}`)}
-                  className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center group-hover:-rotate-30 transition duration-500"
-                >
-                  <img src="/assets/home/icons/right.svg" alt="arrow" />
+              <div>
+                <div className="flex items-center justify-between mb-8 gap-2">
+                  <h2 className="text-dark font-medium text-2xl group-hover:text-main">
+                    {item.title}
+                  </h2>
+                  <div
+                    onClick={() => navigate(`/portfolio/${item.id}`)}
+                    className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center group-hover:-rotate-30 transition duration-500"
+                  >
+                    <img src="/assets/home/icons/right.svg" alt="arrow" />
+                  </div>
                 </div>
+                <p className="font-light text-base text-muted pb-6">
+                  {item.challenge}
+                </p>
+                <p className="font-light text-base text-muted pb-6">
+                  {item.solution}
+                </p>
               </div>
-              <p className="font-light text-base text-muted pb-6">
-                {item.description}
-              </p>
               <div className="relative overflow-hidden rounded-xl">
                 <img
                   className="rounded-2xl w-full"

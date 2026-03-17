@@ -10,32 +10,30 @@ import { motion } from "framer-motion";
 export default function Home() {
   let navigate = useNavigate();
 
-  const webText = [
-    "Responsive design across all devices",
-    "API integrations and third-party services",
-    "Content Management System (CMS) setup",
-    "SEO optimization and performance tuning",
-    "Ongoing maintenance and support",
-  ];
-
   const potfolio = [
     {
       id: 1,
-      title: "Phonic Maps",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+      title: "Phonic Maps (SaaS Platform)",
+      challenge:
+        "The Challenge: Managing hundreds of Google Business locations manually is inefficient and prone to error.",
+      solution:
+        "The Hexodea Solution: We engineered an enterprise-grade, AI-powered dashboard that automates review responses and synchronizes business data effortlessly across the globe from a single, centralized hub.",
     },
     {
       id: 2,
-      title: "Fixawy",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+      title: "Fixawy (On-Demand Marketplace)",
+      challenge:
+        "The Challenge: Creating a reliable, comprehensive home maintenance ecosystem.",
+      solution:
+        "The Hexodea Solution: We built a massive three-way ecosystem featuring a customer app, a dedicated provider app, and a powerful admin panel. It features real-time tracking, seamless workflows, and automated financial settlements.",
     },
     {
       id: 3,
-      title: "Hexodea",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+      title: "Yelo Sales (Bidding Marketplace)",
+      challenge:
+        "The Challenge: Creating a predictable, transparent transaction environment for buyers and sellers.",
+      solution:
+        "The Hexodea Solution: We developed a streamlined marketplace application featuring a fixed-price bidding system. This robust architecture ensures fair, standardized transactions and a frictionless user experience from initial offer to final sale.",
     },
   ];
 
@@ -75,24 +73,33 @@ export default function Home() {
   const services = [
     {
       id: 1,
-      title: "Website Development",
+      title: "Custom Web Engineering",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+        "Your website is your digital storefront. We build lightning-fast, responsive web applications and platforms that look incredible and perform flawlessly.",
       image: "/assets/service/icons/web.svg",
+      tech: [
+        "Specialized in React, Node.js, and Next.js for high-speed performance, secure e-commerce engines, and robust API microservices.",
+      ],
     },
     {
       id: 2,
-      title: "Mobile Application Development",
+      title: "Mobile App Strategy",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+        "We craft mobile experiences that people actually want to use. Whether you need a native or cross-platform solution, we focus on intuitive user journeys, rock-solid security, and real-time performance.",
       image: "/assets/service/icons/mobile.svg",
+      tech: [
+        "Expert development in Flutter and React Native for seamless iOS and Android ecosystems.",
+      ],
     },
     {
       id: 3,
-      title: "Cloud Solution",
+      title: "Cloud Solutions & DevOps",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+        "No more worrying about server crashes or slow load times. We design robust cloud infrastructures that guarantee your software stays online, secure, and ready to handle high traffic without breaking a sweat.",
       image: "/assets/service/icons/cloud.svg",
+      tech: [
+        "Infrastructure as Code with automated deployments across AWS, Azure, and Google Cloud, prioritizing end-to-end encryption.",
+      ],
     },
   ];
 
@@ -187,18 +194,19 @@ export default function Home() {
               <p className="font-normal text-sm pb-6">{service.description}</p>
 
               <div className="z-10 absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
-                {webText.map((text, index) => (
-                  <p
-                    key={index}
-                    className="text-dark flex items-center mb-4 gap-2"
-                  >
-                    <img
-                      src="/assets/home/icons/right-arrow.svg"
-                      alt="right-arrow"
-                    />
-                    {text}
-                  </p>
-                ))}
+                {service.tech &&
+                  service.tech.map((text, index) => (
+                    <p
+                      key={index}
+                      className="text-dark flex items-center mb-4 gap-2"
+                    >
+                      <img
+                        src="/assets/home/icons/right-arrow.svg"
+                        alt="right-arrow"
+                      />
+                      {text}
+                    </p>
+                  ))}
                 <Link
                   className="absolute border-2 border-white -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main px-4 py-2 rounded-3xl text-lg font-medium block text-center"
                   to={`/service/${service.id}`}
@@ -216,30 +224,35 @@ export default function Home() {
           description="A showcase of our digital projects across industries"
           dark={true}
         />
-        <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <div className="mt-14 grid xl:grid-cols-3 md:grid-cols-2 gap-6">
           {potfolio.map((item, i) => (
             <motion.div
-              initial={{ x: -200, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ y: -200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 1, ease: "easeOut" }}
               key={item.id}
-              className="p-4 rounded-3xl border border-black/10 group bg-white"
+              className="p-4 rounded-3xl border border-black/10 group bg-white flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-dark font-medium text-2xl group-hover:text-main">
-                  {item.title}
-                </h2>
-                <div
-                  onClick={() => navigate(`/portfolio/${item.id}`)}
-                  className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center group-hover:-rotate-30 transition duration-500"
-                >
-                  <img src="/assets/home/icons/right.svg" alt="arrow" />
+              <div>
+                <div className="flex items-center justify-between mb-8 gap-2">
+                  <h2 className="text-dark font-medium text-2xl group-hover:text-main">
+                    {item.title}
+                  </h2>
+                  <div
+                    onClick={() => navigate(`/portfolio/${item.id}`)}
+                    className="cursor-pointer w-10 h-10 bg-main rounded-full flex items-center justify-center group-hover:-rotate-30 transition duration-500"
+                  >
+                    <img src="/assets/home/icons/right.svg" alt="arrow" />
+                  </div>
                 </div>
+                <p className="font-light text-base text-muted pb-6">
+                  {item.challenge}
+                </p>
+                <p className="font-light text-base text-muted pb-6">
+                  {item.solution}
+                </p>
               </div>
-              <p className="font-light text-base text-muted pb-6">
-                {item.description}
-              </p>
               <div className="relative overflow-hidden rounded-xl">
                 <img
                   className="rounded-2xl w-full"

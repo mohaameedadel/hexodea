@@ -1,59 +1,46 @@
 import { Link } from "react-router";
 import { motion } from "framer-motion";
 import BlurText from "../../components/blur-text";
-import HeroSectionTextHover from "~/components/hero-section-text-hover";
+import StaggeredLetter from "../home/components/staggered-text";
 
 export default function Service() {
-  const webText = [
-    "Responsive design across all devices",
-    "API integrations and third-party services",
-    "Content Management System (CMS) setup",
-    "SEO optimization and performance tuning",
-    "Ongoing maintenance and support",
-  ];
-
   const services = [
     {
       id: 1,
-      title: "Website Development",
+      title: "Custom Web Engineering",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+        "Your website is your digital storefront. We build lightning-fast, responsive web applications and platforms that look incredible and perform flawlessly.",
       image: "/assets/service/icons/web.svg",
+      tech: [
+        "Specialized in React, Node.js, and Next.js for high-speed performance, secure e-commerce engines, and robust API microservices.",
+      ],
     },
     {
       id: 2,
-      title: "Mobile Application Development",
+      title: "Mobile App Strategy",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+        "We craft mobile experiences that people actually want to use. Whether you need a native or cross-platform solution, we focus on intuitive user journeys, rock-solid security, and real-time performance.",
       image: "/assets/service/icons/mobile.svg",
+      tech: [
+        "Expert development in Flutter and React Native for seamless iOS and Android ecosystems.",
+      ],
     },
     {
       id: 3,
-      title: "Cloud Solution",
+      title: "Cloud Solutions & DevOps",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+        "No more worrying about server crashes or slow load times. We design robust cloud infrastructures that guarantee your software stays online, secure, and ready to handle high traffic without breaking a sweat.",
       image: "/assets/service/icons/cloud.svg",
+      tech: [
+        "Infrastructure as Code with automated deployments across AWS, Azure, and Google Cloud, prioritizing end-to-end encryption.",
+      ],
     },
     {
       id: 4,
-      title: "UI UX Design",
+      title: "End-to-End Product Engineering",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
+        "Have an idea but don't know where to start? We take you from a blank whiteboard to a fully functional product, handling the UI/UX design, database architecture, and final launch.",
       image: "/assets/service/icons/uiux.svg",
-    },
-    {
-      id: 5,
-      title: "AI & Automation",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
-      image: "/assets/service/icons/ai.svg",
-    },
-    {
-      id: 6,
-      title: "Custom Software",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's",
-      image: "/assets/service/icons/gear.svg",
     },
   ];
 
@@ -71,13 +58,22 @@ export default function Service() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <HeroSectionTextHover
-                text="WHERE QUALITY MEETS INNOVATION"
-                className="text-5xl font-semibold mb-10 text-white lg:w-2/3 mx-auto"
-              />
+              <div className="mb-10 flex justify-center flex-wrap gap-2 lg:w-2/3 mx-auto">
+                <StaggeredLetter
+                  text="Everything you need"
+                  className="text-white"
+                />
+
+                <StaggeredLetter text="to succeed" className="text-white" />
+
+                <StaggeredLetter
+                  text="in the digital world"
+                  className="text-white"
+                />
+              </div>
             </motion.div>
             <BlurText
-              text='"We provide tailored solutions that help businesses grow, improve efficiency, and stay ahead of the competition."'
+              text='"We handle the heavy lifting with clean code and scalable architecture so you can focus on running your business. Here is what we do best:"'
               delay={100}
               animateBy="words"
               direction="bottom"
@@ -118,18 +114,19 @@ export default function Service() {
               <p className="font-normal text-sm pb-6">{service.description}</p>
 
               <div className="z-10 absolute top-5 left-0 w-full min-h-full bg-white rounded-2xl opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all duration-300 p-6">
-                {webText.map((text, index) => (
-                  <p
-                    key={index}
-                    className="text-dark flex items-center mb-4 gap-2"
-                  >
-                    <img
-                      src="/assets/home/icons/right-arrow.svg"
-                      alt="right-arrow"
-                    />
-                    {text}
-                  </p>
-                ))}
+                {service.tech &&
+                  service.tech.map((text, index) => (
+                    <p
+                      key={index}
+                      className="text-dark flex items-center mb-4 gap-2"
+                    >
+                      <img
+                        src="/assets/home/icons/right-arrow.svg"
+                        alt="right-arrow"
+                      />
+                      {text}
+                    </p>
+                  ))}
                 <Link
                   className="absolute border-2 border-white -bottom-5 left-1/2 transform -translate-x-1/2 w-fit mx-auto bg-main px-4 py-2 rounded-3xl text-lg font-medium block text-center"
                   to={`/service/${service.id}`}

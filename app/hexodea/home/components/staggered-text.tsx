@@ -17,7 +17,7 @@ export default function StaggeredLetter({
   className,
   ...props
 }: DropLetterProps) {
-  const common = "text-5xl font-semibold drop-shadow";
+  const common = "text-3xl md:text-5xl font-semibold drop-shadow";
 
   const letterVariants: Variants = {
     hidden: {
@@ -38,7 +38,7 @@ export default function StaggeredLetter({
     <div
       className={cn(
         "relative flex flex-col items-center justify-center text-foreground",
-        className
+        className,
       )}
       {...props}
     >

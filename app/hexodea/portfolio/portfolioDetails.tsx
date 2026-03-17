@@ -23,9 +23,9 @@ export default function PortfolioDetails({
   const potfolio = [
     {
       id: 1,
-      title: "Phonic Maps",
+      title: "Phonic Maps (SaaS Platform)",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        "We engineered an enterprise-grade, AI-powered dashboard that automates review responses and synchronizes business data effortlessly across the globe from a single, centralized hub.",
       images: [
         "/assets/portfolioDetails/screen1.png",
         "/assets/portfolioDetails/screen2.png",
@@ -42,14 +42,14 @@ export default function PortfolioDetails({
           title: "Challenge",
           icon: "/assets/portfolioDetails/icons/challenge.svg",
           description:
-            "Legacy banking apps provided poor user experiences with confusing navigation, security concerns, and limited functionality for modern financial needs.",
+            "The Challenge: Managing hundreds of Google Business locations manually is inefficient and prone to error.",
         },
         {
           id: 2,
           title: "Approach",
           icon: "/assets/portfolioDetails/icons/approach.svg",
           description:
-            "We designed a mobile-first banking experience prioritizing security, simplicity, and powerful features. Our approach combined intuitive UI with advanced fintech capabilities.",
+            "We engineered an enterprise-grade, AI-powered dashboard that automates review responses and synchronizes business data effortlessly across the globe from a single, centralized hub.",
         },
         {
           id: 3,
@@ -103,9 +103,9 @@ export default function PortfolioDetails({
     },
     {
       id: 2,
-      title: "Fixawy",
+      title: "Fixawy (On-Demand Marketplace)",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        "The Hexodea Solution: We built a massive three-way ecosystem featuring a customer app, a dedicated provider app, and a powerful admin panel. It features real-time tracking, seamless workflows, and automated financial settlements.",
       images: [
         "/assets/portfolioDetails/screen1.png",
         "/assets/portfolioDetails/screen2.png",
@@ -122,14 +122,14 @@ export default function PortfolioDetails({
           title: "Challenge",
           icon: "/assets/portfolioDetails/icons/challenge.svg",
           description:
-            "Legacy banking apps provided poor user experiences with confusing navigation, security concerns, and limited functionality for modern financial needs.",
+            "The Challenge: Creating a reliable, comprehensive home maintenance ecosystem.",
         },
         {
           id: 2,
           title: "Approach",
           icon: "/assets/portfolioDetails/icons/approach.svg",
           description:
-            "We designed a mobile-first banking experience prioritizing security, simplicity, and powerful features. Our approach combined intuitive UI with advanced fintech capabilities.",
+            "The Hexodea Solution: We built a massive three-way ecosystem featuring a customer app, a dedicated provider app, and a powerful admin panel. It features real-time tracking, seamless workflows, and automated financial settlements.",
         },
         {
           id: 3,
@@ -183,9 +183,9 @@ export default function PortfolioDetails({
     },
     {
       id: 3,
-      title: "Hexodea",
+      title: "Yelo Sales (Bidding Marketplace)",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        "The Hexodea Solution: We developed a streamlined marketplace application featuring a fixed-price bidding system. This robust architecture ensures fair, standardized transactions and a frictionless user experience from initial offer to final sale.",
       images: [
         "/assets/portfolioDetails/screen1.png",
         "/assets/portfolioDetails/screen2.png",
@@ -202,254 +202,14 @@ export default function PortfolioDetails({
           title: "Challenge",
           icon: "/assets/portfolioDetails/icons/challenge.svg",
           description:
-            "Legacy banking apps provided poor user experiences with confusing navigation, security concerns, and limited functionality for modern financial needs.",
+            "The Challenge: Creating a predictable, transparent transaction environment for buyers and sellers.",
         },
         {
           id: 2,
           title: "Approach",
           icon: "/assets/portfolioDetails/icons/approach.svg",
           description:
-            "We designed a mobile-first banking experience prioritizing security, simplicity, and powerful features. Our approach combined intuitive UI with advanced fintech capabilities.",
-        },
-        {
-          id: 3,
-          title: "Result",
-          icon: "/assets/portfolioDetails/icons/result.svg",
-          description:
-            "4.9★ app store rating, 500K+ downloads in first 3 months, and 60% increase in daily active users compared to previous app.",
-        },
-      ],
-      background: "/assets/portfolioDetails/background.jpg",
-      cards: [
-        "/assets/portfolioDetails/image1.png",
-        "/assets/portfolioDetails/image2.png",
-        "/assets/portfolioDetails/image3.png",
-      ],
-      feedbacks: [
-        {
-          id: 1,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-        {
-          id: 2,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-        {
-          id: 3,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "Hexodea",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
-      images: [
-        "/assets/portfolioDetails/screen1.png",
-        "/assets/portfolioDetails/screen2.png",
-        "/assets/portfolioDetails/screen3.png",
-        "/assets/portfolioDetails/screen4.png",
-        "/assets/about/image1.png",
-        "/assets/about/image2.png",
-        "/assets/about/image3.png",
-        "/assets/about/image4.png",
-      ],
-      summary: [
-        {
-          id: 1,
-          title: "Challenge",
-          icon: "/assets/portfolioDetails/icons/challenge.svg",
-          description:
-            "Legacy banking apps provided poor user experiences with confusing navigation, security concerns, and limited functionality for modern financial needs.",
-        },
-        {
-          id: 2,
-          title: "Approach",
-          icon: "/assets/portfolioDetails/icons/approach.svg",
-          description:
-            "We designed a mobile-first banking experience prioritizing security, simplicity, and powerful features. Our approach combined intuitive UI with advanced fintech capabilities.",
-        },
-        {
-          id: 3,
-          title: "Result",
-          icon: "/assets/portfolioDetails/icons/result.svg",
-          description:
-            "4.9★ app store rating, 500K+ downloads in first 3 months, and 60% increase in daily active users compared to previous app.",
-        },
-      ],
-      background: "/assets/portfolioDetails/background.jpg",
-      cards: [
-        "/assets/portfolioDetails/image1.png",
-        "/assets/portfolioDetails/image2.png",
-        "/assets/portfolioDetails/image3.png",
-      ],
-      feedbacks: [
-        {
-          id: 1,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-        {
-          id: 2,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-        {
-          id: 3,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-      ],
-    },
-    {
-      id: 5,
-      title: "Hexodea",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
-      images: [
-        "/assets/portfolioDetails/screen1.png",
-        "/assets/portfolioDetails/screen2.png",
-        "/assets/portfolioDetails/screen3.png",
-        "/assets/portfolioDetails/screen4.png",
-        "/assets/about/image1.png",
-        "/assets/about/image2.png",
-        "/assets/about/image3.png",
-        "/assets/about/image4.png",
-      ],
-      summary: [
-        {
-          id: 1,
-          title: "Challenge",
-          icon: "/assets/portfolioDetails/icons/challenge.svg",
-          description:
-            "Legacy banking apps provided poor user experiences with confusing navigation, security concerns, and limited functionality for modern financial needs.",
-        },
-        {
-          id: 2,
-          title: "Approach",
-          icon: "/assets/portfolioDetails/icons/approach.svg",
-          description:
-            "We designed a mobile-first banking experience prioritizing security, simplicity, and powerful features. Our approach combined intuitive UI with advanced fintech capabilities.",
-        },
-        {
-          id: 3,
-          title: "Result",
-          icon: "/assets/portfolioDetails/icons/result.svg",
-          description:
-            "4.9★ app store rating, 500K+ downloads in first 3 months, and 60% increase in daily active users compared to previous app.",
-        },
-      ],
-      background: "/assets/portfolioDetails/background.jpg",
-      cards: [
-        "/assets/portfolioDetails/image1.png",
-        "/assets/portfolioDetails/image2.png",
-        "/assets/portfolioDetails/image3.png",
-      ],
-      feedbacks: [
-        {
-          id: 1,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-        {
-          id: 2,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-        {
-          id: 3,
-          rating: 4,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-          user: {
-            name: "Maxin Will",
-            image: "/assets/portfolioDetails/icons/user_profile.svg",
-            position: "Product Manager",
-          },
-        },
-      ],
-    },
-    {
-      id: 6,
-      title: "Hexodea",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
-      images: [
-        "/assets/portfolioDetails/screen1.png",
-        "/assets/portfolioDetails/screen2.png",
-        "/assets/portfolioDetails/screen3.png",
-        "/assets/portfolioDetails/screen4.png",
-        "/assets/about/image1.png",
-        "/assets/about/image2.png",
-        "/assets/about/image3.png",
-        "/assets/about/image4.png",
-      ],
-      summary: [
-        {
-          id: 1,
-          title: "Challenge",
-          icon: "/assets/portfolioDetails/icons/challenge.svg",
-          description:
-            "Legacy banking apps provided poor user experiences with confusing navigation, security concerns, and limited functionality for modern financial needs.",
-        },
-        {
-          id: 2,
-          title: "Approach",
-          icon: "/assets/portfolioDetails/icons/approach.svg",
-          description:
-            "We designed a mobile-first banking experience prioritizing security, simplicity, and powerful features. Our approach combined intuitive UI with advanced fintech capabilities.",
+            "The Hexodea Solution: We developed a streamlined marketplace application featuring a fixed-price bidding system. This robust architecture ensures fair, standardized transactions and a frictionless user experience from initial offer to final sale.",
         },
         {
           id: 3,
@@ -504,7 +264,7 @@ export default function PortfolioDetails({
   ];
 
   const project = potfolio.find(
-    (item) => item.id === Number(params.portfolioId)
+    (item) => item.id === Number(params.portfolioId),
   );
 
   const steps = [
@@ -580,7 +340,7 @@ export default function PortfolioDetails({
                 item.id === 1 && "hover:border-[#FF6467]",
                 item.id === 2 && "hover:border-[#0600F4]",
                 item.id === 3 && "hover:border-[#68C8AB]",
-                "p-4 bg-white rounded-xl border-0 hover:border-b-4 transform transition-all duration-100"
+                "p-4 bg-white rounded-xl border-0 hover:border-b-4 transform transition-all duration-100",
               )}
               key={item.id}
             >
@@ -637,7 +397,7 @@ export default function PortfolioDetails({
                   onClick={(e) => {
                     const slideIndex = Number(
                       (e.currentTarget.closest(".swiper-slide") as any).dataset
-                        .swiperSlideIndex
+                        .swiperSlideIndex,
                     );
                     swiperRef.current?.slideToLoop(slideIndex);
                   }}
