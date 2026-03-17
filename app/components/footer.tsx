@@ -46,11 +46,10 @@ export function Footer() {
 
             <ul className="space-y-2">
               {[
-                { name: "UI UX Design", href: "/" },
-                { name: "Web Development", href: "/" },
-                { name: "Mobile Development", href: "/" },
-                { name: "Digital Marketing", href: "/" },
-                { name: "Growth Solutions", href: "/" },
+                { name: "Custom Web Engineering", href: "/service/1" },
+                { name: "Mobile App Strategy", href: "/service/2" },
+                { name: "Cloud Solutions & DevOps", href: "/service/3" },
+                { name: "End-to-End Product Engineering", href: "/service/4" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link

@@ -39,34 +39,41 @@ export default function Home() {
 
   const faqs = [
     {
-      question: "Lorem Ipsum is simply dummy text?",
+      question:
+        "How much does it cost to build a custom app or software platform?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        "Because every project is unique, there is no one-size-fits-all price. The cost depends on the complexity of your requirements, the platforms you want to target (iOS, Android, Web), and the technology stack required. During our initial discovery phase, we work with you to understand your exact needs and provide a detailed, transparent proposal with no hidden fees.",
     },
     {
-      question: "Lorem Ipsum is simply dummy text?",
+      question: "How long will it take to complete my project?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        "Timelines vary based on the scope of the project. A standard mobile MVP (Minimum Viable Product) might take 2 to 3 months, while a complex enterprise ecosystem could take 6 months or more. We use an Agile development process with two-week sprints, meaning you will see consistent progress and functional milestones throughout the development cycle.",
     },
     {
-      question: "Lorem Ipsum is simply dummy text?",
+      question: "Who owns the source code once the project is finished?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        "You do. Once the project is fully completed and settled, we hand over all intellectual property rights and the complete source code to your business. We build it, but it belongs entirely to you.",
     },
     {
-      question: "Lorem Ipsum is simply dummy text?",
+      question: "Will you maintain and update the software after it launches?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        "Absolutely. Launch day is just the beginning of our partnership. We offer ongoing maintenance, server monitoring, and support packages to ensure your software remains secure, up-to-date, and fully optimized as your user base grows.",
     },
     {
-      question: "Lorem Ipsum is simply dummy text?",
+      question: "How do you keep me updated during the development process?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        'Clear communication is the foundation of the "Hexodea Way." You will have a dedicated project manager and direct lines of communication via Slack or email. We also use project management tools like Jira to track progress, and we conduct regular sprint reviews so you can see the software taking shape in real time.',
     },
     {
-      question: "Lorem Ipsum is simply dummy text?",
+      question:
+        "I have an idea, but I don't have technical specifications yet. Can you still help?",
       answer:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
+        "Yes! We don't just write code; we are digital architects. If you only have a rough concept, our team will sit down with you for a comprehensive discovery phase. We will help you define the business logic, map out the user journey, and design the technical blueprint before development begins.",
+    },
+    {
+      question: "What technologies and frameworks do you use?",
+      answer:
+        "We use modern, scalable technologies tailored to your specific project needs. Our core stack includes React, Next.js, and Node.js for web and back-end development, and Flutter or React Native for cross-platform mobile apps. We also utilize AWS, Google Cloud, and Azure for secure, high-performance cloud infrastructure.",
     },
   ];
 

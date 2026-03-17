@@ -3,9 +3,9 @@ import Button from "~/components/daisyUi/button";
 import TextareaInput from "~/components/form/text-area";
 import TextInput from "~/components/form/text-input";
 import Heading from "~/components/heading";
-import MirrorText from "./components/mirror-text";
 import BlurText from "../../components/blur-text";
 import { motion } from "framer-motion";
+import StaggeredLetter from "../home/components/staggered-text";
 
 export default function ContactUs() {
   const { control, handleSubmit } = useForm();
@@ -23,13 +23,19 @@ export default function ContactUs() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <MirrorText
-                className="text-5xl lg:text-7xl font-semibold mb-10 text-white lg:w-2/3 mx-auto"
-                text="GET IN TOUCH"
-              />
+              <div className="mb-10 flex justify-center flex-wrap gap-2 lg:w-2/3 mx-auto">
+                <StaggeredLetter text="Ready to Start" className="text-white" />
+
+                <StaggeredLetter text="Your Digital" className="text-white" />
+
+                <StaggeredLetter
+                  text="Transformation?"
+                  className="text-white"
+                />
+              </div>
             </motion.div>
             <BlurText
-              text="We're a creative agency driven by passion, powered by innovation, and dedicated to transforming brands into unforgettable experiences."
+              text="Whether you have a fully drafted project proposal or just a rough concept drawn on a napkin, let's get to work."
               delay={100}
               animateBy="words"
               direction="bottom"
@@ -50,7 +56,7 @@ export default function ContactUs() {
           <div>
             <Heading
               title="Let's Talk"
-              description="At Besnik Consultancy, we take pride in our values – service, integrity, and excellence. "
+              description="At Hexodea Consultancy, we take pride in our values – service, integrity, and excellence. "
               dark
             />
 
