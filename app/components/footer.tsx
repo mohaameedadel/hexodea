@@ -11,7 +11,7 @@ export function Footer() {
           <p className="mt-2 mb-6 text-main text-lg font-normal">
             Interact Digitally
           </p>
-          <p className="text-muted text-lg font-normal">
+          <p className="text-muted font-normal">
             Transforming ideas into powerful digital solutions that drive
             business growth and create meaningful user experiences.
           </p>
@@ -19,7 +19,7 @@ export function Footer() {
 
         <div className="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center lg:text-left">
           <div>
-            <h2 className="text-2xl font-medium mb-6">Quick Links</h2>
+            <h2 className="text-xl font-medium mb-6">Quick Links</h2>
 
             <ul className="space-y-2">
               {[
@@ -31,7 +31,7 @@ export function Footer() {
               ].map((item) => (
                 <li key={item.name}>
                   <Link
-                    className="text-muted text-lg font-normal hover:text-gray-400"
+                    className="text-muted font-normal hover:text-gray-400"
                     to={item.href}
                   >
                     {item.name}
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-medium mb-6">Services</h2>
+            <h2 className="text-xl font-medium mb-6">Services</h2>
 
             <ul className="space-y-2">
               {[
@@ -53,7 +53,7 @@ export function Footer() {
               ].map((item) => (
                 <li key={item.name}>
                   <Link
-                    className="text-muted text-lg font-normal hover:text-gray-400"
+                    className="text-muted font-normal hover:text-gray-400"
                     to={item.href}
                   >
                     {item.name}
@@ -64,12 +64,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-medium mb-6">Get in Touch</h2>
+            <h2 className="text-xl font-medium mb-6">Get in Touch</h2>
 
-            <p className="text-muted text-lg font-normal mb-6">
-              hello@dotnaat.com
-            </p>
-            <p className="text-muted text-lg font-normal">+1 (555) 123-4567</p>
+            <p className="text-muted font-normal mb-6">hello@dotnaat.com</p>
+            <p className="text-muted font-normal">+1 (555) 123-4567</p>
 
             <div className="flex items-center justify-center lg:justify-start gap-4 mt-12">
               <a
@@ -78,7 +76,7 @@ export function Footer() {
                 href="https://www.facebook.com/hexodea"
               >
                 <img
-                  className="w-14 h-14"
+                  className="w-10 h-10"
                   src="/assets/home/icons/twitter.svg"
                   alt="twitter"
                 />
@@ -89,7 +87,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/hexodea"
               >
                 <img
-                  className="w-14 h-14"
+                  className="w-10 h-10"
                   src="/assets/home/icons/linkedin.svg"
                   alt="linkedin"
                 />
@@ -100,7 +98,7 @@ export function Footer() {
                 href="mailto:hello@dotnaat.com"
               >
                 <img
-                  className="w-14 h-14"
+                  className="w-10 h-10"
                   src="/assets/home/icons/mail.svg"
                   alt="mail"
                 />
@@ -110,7 +108,7 @@ export function Footer() {
         </div>
       </div>
       <div className="flex lg:justify-between items-center justify-center gap-4 flex-wrap py-8">
-        <p className="text-muted text-base lg:text-lg font-normal">
+        <p className="text-muted text-base font-normal">
           © 2025 DotNaat. All rights reserved.
         </p>
 
@@ -122,7 +120,7 @@ export function Footer() {
           ].map((item) => (
             <li key={item.name}>
               <Link
-                className="text-muted text-base lg:text-lg font-normal hover:text-gray-400"
+                className="text-muted font-normal hover:text-gray-400"
                 to={item.href}
               >
                 {item.name}
